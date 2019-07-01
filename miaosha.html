@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+    <script src="./js/jquery.min.js"></script>
+</head>
+<body>
+<div style="height: 350px;background-color: #ffcbe0;text-align: center">
+    <h1 id="time" style="font-size: 99px"></h1>
+    <h1 style="font-size: 99px">秒杀</h1>
+</div>
+</body>
+<script>
+    setInterval(function(){
+        var d = new Date();
+        var s = d.getSeconds();
+        if (parseInt(s) >= 0 && parseInt(s) <= 9) {
+            s = '0' + s;
+        }
+        var m = d.getMinutes();
+        if (parseInt(m) >= 0 && parseInt(m) <= 9) {
+            m = '0' + m;
+        }
+        var h = d.getHours();
+        if (parseInt(h) >= 0 && parseInt(h) <= 9) {
+            h = '0' + h;
+        }
+        var temp = parseInt(s)%5;
+        var col = "red";
+        switch (temp){
+            case 0:
+                col = "#57ff5d";
+                break;
+            case 1:
+                col = "#ffb530";
+                break;
+            case 2:
+                col = "#ff7967";
+                break;
+            case 3:
+                col = "#ff49fa";
+                break;
+            case 4:
+                col = "#6e4aff";
+                break;
+            case 5:
+                col = "#2feeff";
+                break;
+            case 6:
+                col = "#43ffa2";
+                break;
+        }
+        $("#time").css({"color":col});
+        $("#time").text(h + ":" + m + ":" + s);
+    },500
+    );
+</script>
+</html>
